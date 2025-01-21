@@ -23,10 +23,9 @@ $sql2 = mysqli_query($koneksi, $query2);
                 <div class="card bg-gradient-info card-img-holder text-white">
                   <div class="card-body">
                     <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                    <h4 class="font-weight-normal mb-3"><?php echo $row['no_matakuliah']; ?>
+                    <h4 class="font-weight-normal mb-3"><?php echo 'Kode Pelatihan: ', $row['no_matakuliah']; ?>
                     </h4>
                     <h2 class="mb-5"><?php echo $row['nama_matakuliah']; ?></h2>
-                    <h5 class="card-text">Semester : <?php echo $row['semester']; ?></h5>
                   </div>
                 </div>
               </div>

@@ -14,13 +14,6 @@ include'../config/koneksi.php';
                   <i class="mdi mdi-barcode-scan"></i>
                 </span> Scan QR Code Mahasisiswa
               </h3>
-              <!-- <nav aria-label="breadcrumb">
-                <ul class="breadcrumb">
-                  <li class="breadcrumb-item active" aria-current="page">
-                    <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
-                  </li>
-                </ul>
-              </nav> -->
             </div>
             <div class="row">
               <div class="col-12 grid-margin stretch-card">
@@ -229,7 +222,7 @@ video {
             console.log(qrCodeMessage);
             var obj = JSON.parse(qrCodeMessage);
             var id_qr = obj.id_qrcode;
-            var id_no = obj.no_matakuliah;
+            var id_no = obj.no_pelatihan;
 
             // Add form and button below the map
             const formContainer = document.createElement('div');
@@ -242,12 +235,8 @@ video {
                         <input type="hidden" class="form-control" name="id_qrcode" value="${id_qr}" readonly>
                     </div>
                     <div class="mb-3">
-                        <label for="lat" class="form-label">NOMOR MATAKULIAH</label>
-                        <input type="text" class="form-control" name="no_matakuliah" value="${id_no}" readonly>
-                    </div>
-                    <div class="mb-3">
-                        <label for="nim" class="form-label">NIM:</label>
-                        <input type="number" class="form-control" name="nim" value="<?php echo $_SESSION['nim'] ?>" readonly>
+                        <label for="nim" class="form-label">NIK:</label>
+                        <input type="number" class="form-control" name="nik" value="<?php echo $_SESSION['nik'] ?>" readonly>
                     </div>
                     <div class="mb-3">
                         <label for="lat" class="form-label">Latitude:</label>
@@ -258,12 +247,8 @@ video {
                         <input type="text" class="form-control" name="longitude" value="${longitude}" readonly>
                     </div>
                     <div class="mb-3">
-                        <label for="entryTime" class="form-label">Waktu Masuk:</label>
-                        <input type="time" class="form-control" name="entry_time" value="${getCurrentTime()}" readonly>
-                    </div>
-                    <div class="mb-3">
                         <label for="entryTime" class="form-label">Tanggal</label>
-                        <input type="date" class="form-control" name="tanggal_absen" value="${getCurrentDate()}" readonly>
+                        <input type="date" class="form-control" name="tanggal_masuk" value="${getCurrentDate()}" readonly>
                     </div>
                     <button type="submit" class="btn btn-success" onclick="return confirm('Apa Anda Yakin Untuk Menyimpan Data Ini?')">Simpan Data</button>
                 </form>

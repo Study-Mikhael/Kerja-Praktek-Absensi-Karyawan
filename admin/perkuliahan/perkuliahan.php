@@ -1,8 +1,8 @@
 <?php 
 include'../config/koneksi.php';
 
-$nip = $_SESSION['nip'];
-$query = "SELECT * FROM buatqr WHERE nip = '$nip' ORDER BY id_qrcode  DESC";
+$id_admin = $_SESSION['id_admin'];
+$query = "SELECT buatqr.id_qrcode ,buatqr.no_pelatihan, pelatihan.nama_pelatihan, pelatihan.tanggal_acara, pelatihan.tempat_acara FROM buatqr, pelatihan WHERE pelatihan.no_pelatihan = buatqr.no_pelatihan ORDER BY tanggal_acara  DESC";
 $sql = mysqli_query($koneksi, $query);
 
 ?>
@@ -42,26 +42,21 @@ $sql = mysqli_query($koneksi, $query);
                     <th>Action</th>
                   </tr>
                   <?php 
-								    while ($row = mysqli_fetch_array($sql)){
-									
+                    
+								    while ($row = mysqli_fetch_array($sql)){		
+                      						
 							    ?>
                   <tbody>
                     <tr>
                       <td><?php echo $row['id_qrcode']; ?></td>
-                      <td><?php echo $row['no_matakuliah']; ?></td>
-                      <td><?php echo $row['jurusan']; ?></td>
-                      <td><?php echo $row['kelas']; ?></td>
-                      <td><?php echo $row['pertemuan']; ?></td>
+                      <td><?php echo $row['no_pelatihan']; ?></td>
+                      <td><?php echo $row['nama_pelatihan']; ?></td>
+                      <td><?php echo $row['tanggal_acara']; ?></td>
+                      <td><?php echo $row['tempat_acara']; ?></td>
                       <td>
                         <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModalCenter" data-kuliah='<?=json_encode($row)?>'>
                           <i class="mdi mdi-barcode-scan"></i> 
                         </button>
-                        <!-- <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalmahasiswa" data-kuliah='<?=json_encode($row)?>'>
-                          <i class="mdi mdi-eye"></i> 
-                        </button> -->
-                        <!-- <a href="#" class="btn btn-danger btn-sm" onclick="deleteRow()">
-                          <i class="mdi mdi-delete"></i> 
-                        </a> -->
                         <a href="index.php?menu=4&id=<?php echo $row['id_qrcode'];?>" class="btn btn-primary btn-sm">
                           <i class="mdi mdi-eye"></i> 
                         </a>
@@ -125,7 +120,7 @@ $sql = mysqli_query($koneksi, $query);
     //   "nama_matakuliah" : recipient.nama_matakuliah,
     //   "jurusan" : recipient.jurusan,
     //   "kelas" : recipient.kelas,
-    //   "nip" : recipient.nip,
+    //   "id_admin" : recipient.id_admin,
     //   "pertemuan" : recipient.pertemuan,
     //   "ruangan" : recipient.ruangan,
     //   "semester" : recipient.semester,

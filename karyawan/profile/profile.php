@@ -1,36 +1,13 @@
 <?php
 // include '../config/koneksi.php';
+// session_start();
 // include '../../config/koneksiGoogle.php'; 
 
-$nim = $_SESSION['nim'];
+$nik = $_SESSION['nik'];
 // $tanggal = isset($_GET['tanggal']) ? $_GET['tanggal'] : date('Y-m-d');
-$query = "SELECT * FROM mahasiswa WHERE nim = '$nim'";
+$query = "SELECT * FROM karyawan WHERE nik = '$nik'";
 $sql = mysqli_query($koneksi, $query);
 $row = mysqli_fetch_array($sql);
-
-$redirect_uri = 'http://' . $_SERVER['HTTP_HOST'] . '/absen_mahasiswa/mahasiswa/index.php?menu=5'; // Example redirect URL
-$gClient->setRedirectUri($redirect_uri);
-
-$authUrl = $gClient->createAuthUrl(); 
-  
-  // Render google login button 
-  $output = '<a href="'.filter_var($authUrl, FILTER_SANITIZE_URL).'" class="login-btn">Hubungkan dengan google</a>'; 
-
-  if(isset($_GET['code'])){ 
-    
-    $gClient->authenticate($_GET['code']); 
-    // $_SESSION['token'] = $gClient->getAccessToken();   
-    $gpUserProfile = $google_oauthV2->userinfo->get(); 
-    $id_google = $gpUserProfile['id'];
-    $queryUpdate = "UPDATE mahasiswa SET id_google = ".$id_google." WHERE nim = '$nim'";
-    $sql2 = mysqli_query($koneksi, $queryUpdate);
-    if ($sql2) {
-      echo "<script>alert('Berhasil terhubung ke google')</script>";
-    } else {
-      
-      echo "<script>alert('Gagal terhubung ke google')</script>";
-    }
-  }
 ?>
 <div class="main-panel">
           <div class="content-wrapper">
@@ -38,7 +15,7 @@ $authUrl = $gClient->createAuthUrl();
               <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white me-2">
                   <i class="mdi mdi-barcode-scan"></i>
-                </span> Profile Mahasiswa
+                </span> Profile karyawan
               </h3>
               <!-- <nav aria-label="breadcrumb">
                 <ul class="breadcrumb">
@@ -56,28 +33,17 @@ $authUrl = $gClient->createAuthUrl();
                         <img src="assets/images/foto_mahasiswa/<?php echo $_SESSION['foto']; ?>" alt="" style="width:10%; height: 120px;; border-radius: 100%;">
                        
                     </center>
-                    <?php if($row["id_google"] == null) : ?>
-                      <center class="mt-4"><?= $output ?></center>    
-                    <?php endif; ?>
-                        <hr>
                     <div class="container">
                         <form action="" class="form-sample">
                             <div class="form-group">
-                                <label for="exampleInputUsername0">NIM</label>
-                                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="NIM" value="<?php echo $row['nim']?>" readonly >
+                                <label for="exampleInputUsername0">nik</label>
+                                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="nik" value="<?php echo $row['nik']?>" readonly >
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputUsername0">NAMA</label>
                                 <input type="text" class="form-control" id="exampleInputUsername1" placeholder="NAMA" value="<?php echo $row['nama_lengkap']?>" readonly>
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputUsername0">KELAS</label>
-                                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="NAMA" value="<?php echo $row['kelas']?>" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputUsername0">SEMESTER</label>
-                                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="NAMA" value="<?php echo $row['semester']?>" readonly>
-                            </div>
+                            
                             <div class="form-group">
                                 <label for="exampleInputUsername0">KOTA</label>
                                 <input type="text" class="form-control" id="exampleInputUsername1" placeholder="NAMA" value="<?php echo $row['kota']?>" readonly>
@@ -86,18 +52,6 @@ $authUrl = $gClient->createAuthUrl();
                                 <label for="exampleInputUsername0">TANGGAL LAHIR</label>
                                 <input type="text" class="form-control" id="exampleInputUsername1" placeholder="NAMA" value="<?php echo $row['tanggal_lahir']?>" readonly>
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputUsername0">PROGRAM STUDI</label>
-                                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="NAMA" value="<?php echo $row['prodi']?>" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputUsername0">FAKULTAS</label>
-                                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="NAMA" value="<?php echo $row['fakultas']?>" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputUsername0">TAHUN MASUK</label>
-                                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="NAMA" value="<?php echo $row['tahun_masuk']?>" readonly>
-                            </div>  
                         </form>
                         
                         <!-- <a href="" class="btn btn-gradient-primary me-2" > Ubah Data </a> -->

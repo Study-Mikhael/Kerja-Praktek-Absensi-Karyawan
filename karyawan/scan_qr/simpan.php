@@ -8,7 +8,7 @@
 $servername = "localhost";  // Ganti dengan nama server Anda
 $username = "root";     // Ganti dengan nama pengguna database Anda
 $password = "";     // Ganti dengan kata sandi database Anda
-$database = "db_absen_mahasiswa"; // Ganti dengan nama database Anda
+$database = "db_absensi_kominfo"; // Ganti dengan nama database Anda
 
 $conn = new mysqli($servername, $username, $password, $database);
 
@@ -19,15 +19,13 @@ if ($conn->connect_error) {
 
 // Ambil data dari formulir
 $id_qrcode = $_POST['id_qrcode'];
-$no_matakuliah = $_POST['no_matakuliah'];
-$nim = $_POST['nim'];
-$latitude = $_POST['latitude'];
-$longitude = $_POST['longitude'];
-$entry_time = $_POST['entry_time'];
-$tanggal_absen = $_POST['tanggal_absen'];
+// $no_pelatihan = $_POST['no_pelatihan'];
+$nik = $_POST['nik'];
+// $jam_masuk = $_POST['jam_masuk'];
+$tanggal_masuk = $_POST['tanggal_masuk'];
 
 // Masukkan data ke tabel database (gantilah 'nama_tabel' dengan nama tabel sesuai kebutuhan)
-$sql = "INSERT INTO kehadiran (id_qrcode,no_matakuliah, nim, latitude, longitude, entry_time, tanggal_absen) VALUES ('$id_qrcode','$no_matakuliah','$nim','$latitude', '$longitude', '$entry_time', '$tanggal_absen')";
+$sql = "INSERT INTO kehadiran (id_qrcode, nik, tanggal_masuk) VALUES ('$id_qrcode','$nik', '$tanggal_masuk')";
 
 if ($conn->query($sql) === TRUE) {
     // Jika berhasil, tampilkan alert Bootstrap
@@ -38,7 +36,7 @@ if ($conn->query($sql) === TRUE) {
         </div>
         <script>
             setTimeout(function(){
-                window.location = "../index.php?menu=3";
+                window.location = "../index.php?menu=6";
             }, 2000); // Mengarahkan ke halaman lain setelah 2 detik
         </script>
     ';

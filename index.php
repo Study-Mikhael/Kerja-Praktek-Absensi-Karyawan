@@ -4,21 +4,21 @@ session_start();
 
 if (isset($_POST['login'])){
 
-$nim = $_POST['nim'];
+$nik = $_POST['nik'];
 $password = md5($_POST['password']);
 
-$q2 = "SELECT * FROM mahasiswa WHERE nim='$nim' AND password='$password'";
+$q2 = "SELECT * FROM karyawan WHERE nik='$nik' AND password='$password'";
 $r2 = mysqli_query($koneksi, $q2);
 $d2 = mysqli_fetch_array($r2);
 
 if (mysqli_num_rows($r2) > 0){
   $_SESSION['nama_lengkap'] = $d2['nama_lengkap'];
-  $_SESSION['nim'] = $d2['nim'];
+  $_SESSION['nik'] = $d2['nik'];
   $_SESSION['foto'] = $d2['foto'];
   echo "
   <script>
   alert('Anda Berhasil Login');
-  window.location = 'mahasiswa/index.php';
+  window.location = 'karyawan/index.php';
   </script>
   ";
 }else{
@@ -50,13 +50,13 @@ if(isset($_GET['code'])){
     $_SESSION['token'] = $gClient->getAccessToken(); 
     $gpUserProfile = $google_oauthV2->userinfo->get(); 
     $id_google = $gpUserProfile['id'];
-    $q2 = "SELECT * FROM mahasiswa WHERE id_google='$id_google'";
+    $q2 = "SELECT * FROM karyawan WHERE id_google='$id_google'";
     $r2 = mysqli_query($koneksi, $q2);
     $d2 = mysqli_fetch_array($r2);
 
     if (mysqli_num_rows($r2) > 0){
       $_SESSION['nama_lengkap'] = $d2['nama_lengkap'];
-      $_SESSION['nim'] = $d2['nim'];
+      $_SESSION['nik'] = $d2['nik'];
       $_SESSION['foto'] = $d2['foto'];
       echo "
       <script>
@@ -90,18 +90,18 @@ if($gClient->getAccessToken()){
     $_SESSION['token'] = $gClient->getAccessToken(); 
     $gpUserProfile = $google_oauthV2->userinfo->get(); 
     $id_google = $gpUserProfile['id'];
-    $q2 = "SELECT * FROM mahasiswa WHERE id_google='$id_google'";
+    $q2 = "SELECT * FROM karyawan WHERE id_google='$id_google'";
     $r2 = mysqli_query($koneksi, $q2);
     $d2 = mysqli_fetch_array($r2);
 
     if (mysqli_num_rows($r2) > 0){
       $_SESSION['nama_lengkap'] = $d2['nama_lengkap'];
-      $_SESSION['nim'] = $d2['nim'];
+      $_SESSION['nik'] = $d2['nik'];
       $_SESSION['foto'] = $d2['foto'];
       echo "
       <script>
       alert('Anda Berhasil Login');
-      window.location = 'mahasiswa/index.php';
+      window.location = 'karyawan/index.php';
       </script>
       ";
     }else{
@@ -131,39 +131,38 @@ if($gClient->getAccessToken()){
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <title>Absen Mahasiswa</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/logo_kominfo.png">
 </head>
-<div class="container">
+<body style="background-image: url('assets/img/backgroud.jpg');">
+
+<div class="container col-md-12" >
     <label for=""></label>
       <div class="row justify-content-center mt-5">
         <div class="col-md-4">
           <div class="card login-form shadow mt-5 bg-white rounded">
-            <div class="card-header bg-transparent mb-0"><h5 class="text-center">Aplikasi Absen Mahasisiswa <br>
-                 <span class="font-weight-bold text-primary">Berbasis QR Code dan GetLOcation</span></h5>
-                <center><img src="assets/img/logo_unikom_kuning.png" alt="" width="20%"></center>
+            <div class="card-header bg-transparent mb-0"><h5 class="text-center">Aplikasi Absen Pelatihan <br>
+                 <span class="font-weight-bold text-primary">Berbasis QR Code</span></h5>
+                <center><img src="assets/img/logo_diskominfo.jpeg" alt="" width="50%"></center>
             </div>
             <div class="card-body">
   
               <form action="" method="post">
-                <div class="form-group">
-                  <input type="number" name="nim" class="form-control" placeholder="Nim" autocomplete="new-nim">
+                <div class="form-group">  
+                  <input type="number" name="nik" class="form-control" placeholder="Masukan NIK Anda" autocomplete="new-nik">
                 </div>
                 <div class="form-group">
-                  <input type="password" name="password" class="form-control" placeholder="Password" autocomplete="new-password">
+                  <input type="password" name="password" class="form-control" placeholder="Masukan Password Anda" autocomplete="new-password">
                 </div>
                 <div class="form-group">
                   <input type="submit" name="login" value="Login" class="btn btn-primary btn-block">
                 </div>
               </form>
-              <center>
-                <?= $output ?>
-              </center>
-              <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
             </div>
           </div>
         </div>
       </div>
     </div>
-<body>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 <script>
@@ -181,7 +180,7 @@ if($gClient->getAccessToken()){
   $_SESSION['foto'] = profile.getImageUrl();
 
   // Redirect ke halaman utama atau halaman lain yang diinginkan
-  window.location = 'mahasiswa/index.php';
+  window.location = 'karyawan/index.php';
 }
 </script>
 </body>

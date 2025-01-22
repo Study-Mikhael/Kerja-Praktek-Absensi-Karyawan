@@ -2,8 +2,7 @@
 include"../config/koneksi.php";
 
 $id = $_GET['id'];
-// $query3 = "SELECT * FROM buatqr WHERE id_qrcode = '$id'";
-$query = "SELECT kehadiran.id_kehadiran, kehadiran.id_qrcode , buatqr.no_matakuliah ,mahasiswa.nim , mahasiswa.nama_lengkap, mahasiswa.kelas, mahasiswa.semester, kehadiran.tanggal_absen FROM kehadiran, mahasiswa , buatqr WHERE kehadiran.id_qrcode = '$id' and kehadiran.id_qrcode = buatqr.id_qrcode AND mahasiswa.nim = kehadiran.nim";
+$query = "SELECT karyawan.nik, karyawan.nama_lengkap, karyawan.email, kehadiran.tanggal_masuk, buatqr.id_qrcode FROM karyawan, kehadiran, buatqr WHERE karyawan.nik = kehadiran.nik AND buatqr.id_qrcode = $id;";
 $sql3 = mysqli_query($koneksi, $query);
 ?>
 
@@ -25,11 +24,10 @@ $sql3 = mysqli_query($koneksi, $query);
               <table class="table table-bordered" id="dataTable">
                 <thead class="table-dark">
                   <tr>
-                    <th>No Pelatihan</th>
-                    <th>No Telp</th>
-                    <th>Nama Siswa</th>
-                    <th>Jam Masuk</th>
-                    <th>Tanggal Absen</th>
+                    <th>NIK</th>
+                    <th>NAMA KARYAWAN</th>
+                    <th>TANGGAL MASUK</th>
+                    <th>EMAIL</th>
                   </tr>
                 </thead>
                   <?php
@@ -37,11 +35,10 @@ $sql3 = mysqli_query($koneksi, $query);
                   ?>
                   <tbody>
                     <tr>
-                      <td><?php echo $row['no_matakuliah']; ?></td>
-                      <td><?php echo $row['nim']?></td>
+                      <td><?php echo $row['nik']; ?></td>
                       <td><?php echo $row['nama_lengkap']?></td>
-                      <td><?php echo $row['kelas']?></td>
-                      <td><?php echo $row['tanggal_absen']?></td>
+                      <td><?php echo $row['tanggal_masuk']?></td>
+                      <td><?php echo $row['email']?></td>
                     </tr>
                   </tbody>
                   <?php

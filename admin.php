@@ -54,7 +54,7 @@ if (mysqli_num_rows($r3) > 0){
   
             <form action="" method="post">
                 <div class="form-group">
-                  <input type="email" name="email" class="form-control" placeholder="Masukan Email Anda">
+                  <input type="text" name="email" class="form-control" placeholder="Masukan Email Anda">
                 </div>
                 <div class="form-group">
                   <input type="password" name="password" class="form-control" placeholder="Password">

@@ -129,7 +129,7 @@ if($gClient->getAccessToken()){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-signin-client_id" content="805599403830-ufq3ifkchv2rgvu9s5q674uhte9ns3i9.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <title>Absen Mahasiswa</title>
+    <title>Absen Pelatihan</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/logo_kominfo.png">
 </head>
@@ -148,7 +148,7 @@ if($gClient->getAccessToken()){
   
               <form action="" method="post">
                 <div class="form-group">  
-                  <input type="number" name="nik" class="form-control" placeholder="Masukan NIK Anda" autocomplete="new-nik">
+                  <input type="text" name="nik" class="form-control" placeholder="Masukan NIK Anda" autocomplete="new-nik">
                 </div>
                 <div class="form-group">
                   <input type="password" name="password" class="form-control" placeholder="Masukan Password Anda" autocomplete="new-password">

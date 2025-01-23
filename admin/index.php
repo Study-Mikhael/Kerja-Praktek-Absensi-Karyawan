@@ -110,6 +110,8 @@ if (isset($_SESSION['id_admin'])) {
                 include'perkuliahan/detailkehadiran.php';
               }elseif($menu == 5) {
                 include'karyawan/karyawan.php';
+              }elseif($menu == 6) {
+                include'tambah_pelatihan/tambah_pelatihan.php';
               }else{
                 include'error.php';
               }

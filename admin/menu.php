@@ -22,3 +22,9 @@
                 <i class="mdi mdi-account menu-icon"></i>
               </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.php?menu=6">
+                <span class="menu-title">Tambah Pelatihan</span>
+                <i class="mdi mdi-account menu-icon"></i>
+              </a>
+            </li>

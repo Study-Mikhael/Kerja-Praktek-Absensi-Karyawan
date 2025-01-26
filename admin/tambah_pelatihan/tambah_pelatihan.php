@@ -23,25 +23,20 @@ $sql = mysqli_query($koneksi, $query);
                         <form method="post" action="tambah_pelatihan/simpan_pelatihan.php">
                             <div class="form-group">
                                 <label for="nama_pelatihan">Nama Pelatihan</label>
-                                <input type="text" class="form-control append-input" id="id_admin" name="nama_pelatihan" required >
-                                <input type="hidden" class="form-control append-input" id="id_admin" name="nama_pelatihan" required>
+                                <input type="text" class="form-control append-input" id="nama_pelatihan" name="nama_pelatihan" required>
                             </div>
                             <div class="form-group">
-                                <label for="nama_pelatihan">Tanggal Acara</label>
-                                <input type="date" class="form-control append-input" id="id_admin" name="tanggal_acara" required >
-                                <input type="hidden" class="form-control append-input" id="id_admin" name="tanggal_acara" required>
+                                <label for="tanggal_acara">Tanggal Acara</label>
+                                <input type="date" class="form-control append-input" id="tanggal_acara" name="tanggal_acara" required>
                             </div>
                             <div class="form-group">
-                                <label for="nama_pelatihan">Tempat Acara</label>
-                                <input type="text" class="form-control append-input" id="id_admin" name="tempat_acara" required >
-                                <input type="hidden" class="form-control append-input" id="id_admin" name="tempat_acara" required>
+                                <label for="tempat_acara">Tempat Acara</label>
+                                <input type="text" class="form-control append-input" id="tempat_acara" name="tempat_acara" required>
                             </div>
                             <div class="form-group">
-                                <!-- <label for="nama_pelatihan">id_admin Pelatih</label> -->
-                                <input type="hidden" class="form-control append-input" id="id_admin" name="id_admin" value="<?php echo $_SESSION['id_admin']?>" required readonly>
-                                <input type="hidden" class="form-control append-input" id="id_admin" name="id_admin" value="<?php echo $_SESSION['id_admin']?>" required>
+                                <input type="hidden" class="form-control append-input" name="id_admin" value="<?php echo $_SESSION['id_admin']; ?>" required readonly>
                             </div>
-                            <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
                     </div>
                 </div>

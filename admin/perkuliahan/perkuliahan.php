@@ -37,7 +37,7 @@ $sql = mysqli_query($koneksi, $query);
                     <th>ID QR</th>
                     <th>No Pelatihan</th>
                     <th>Jenis Pelatihan</th>
-                    <th>Jam Masuk</th>
+                    <th>Tanggal Pelatihan Dimulai</th>
                     <th>Pertemuan</th>
                     <th>Action</th>
                   </tr>

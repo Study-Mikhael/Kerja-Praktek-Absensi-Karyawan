@@ -31,17 +31,19 @@ if (mysqli_num_rows($r3) > 0){
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" crossring="anonymous">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-client_id" content="805599403830-ufq3ifkchv2rgvu9s5q674uhte9ns3i9.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <title>Absen Pelatihan</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/logo_kominfo.png">
-  </head>
-<div class="container">
-    <label for=""></label>
-    <div class="container col-md-12" >
+</head>
+<body style="background-image: url('assets/img/backgroud.jpg');">
+
+<div class="container col-md-12" >
     <label for=""></label>
       <div class="row justify-content-center mt-5">
         <div class="col-md-4">
@@ -52,15 +54,15 @@ if (mysqli_num_rows($r3) > 0){
             </div>
             <div class="card-body">
   
-            <form action="" method="post">
-                <div class="form-group">
-                  <input type="text" name="email" class="form-control" placeholder="Masukan Email Anda">
+              <form action="" method="post">
+                <div class="form-group">  
+                  <input type="email" name="email" class="form-control" placeholder="Masukan Email Anda" autocomplete="off">
                 </div>
                 <div class="form-group">
-                  <input type="password" name="password" class="form-control" placeholder="Password">
+                  <input type="password" name="password" class="form-control" placeholder="Masukan Password Anda" autocomplete="new-password">
                 </div>
                 <div class="form-group">
-                  <input type="submit" name="login" value="login" class="btn btn-primary btn-block">
+                  <input type="submit" name="login" value="Login" class="btn btn-primary btn-block">
                 </div>
               </form>
             </div>
@@ -68,7 +70,7 @@ if (mysqli_num_rows($r3) > 0){
         </div>
       </div>
     </div>
-<body style="background-image: url('assets/img/backgroud.jpg');">
+</div>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 </body>

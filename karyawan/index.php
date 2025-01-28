@@ -45,7 +45,7 @@ if (isset($_SESSION['nik'])) {
           </button>
           <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item nav-profile dropdown">
-              <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+              <!-- <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                 <div class="nav-profile-img">
                   <img src="../admin/karyawan/uploud/<?php echo $_SESSION['foto']; ?>" alt="image">
                   <span class="availability-status online"></span>
@@ -53,17 +53,17 @@ if (isset($_SESSION['nik'])) {
                 <div class="nav-profile-text">
                   <p class="mb-1 text-black"><?php echo $_SESSION['nama_lengkap']?></p>
                 </div>
-              </a>
-              <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
+              </a> -->
+              <!-- <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="../logout.php">
                   <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
-              </div>
+              </div> -->
             </li>
             <li class="nav-item d-none d-lg-block full-screen-link">
-              <a class="nav-link">
+              <!-- <a class="nav-link">
                 <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
-              </a>
+              </a> -->
             </li>
           </ul>
           <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
@@ -84,7 +84,7 @@ if (isset($_SESSION['nik'])) {
                   <!--change to offline or busy as needed-->
                 </div>
                 <div class="nav-profile-text d-flex flex-column">
-                  <span class="font-weight-bold mb-2"><?php echo $_SESSION['nik']?></span>
+                  <span class="font-weight-bold mb-2"><?php echo $_SESSION['nama_lengkap']?></span>
                   <!-- <span class="text-secondary text-small">Project Manager</span> -->
                 </div>
                 <!-- <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i> -->

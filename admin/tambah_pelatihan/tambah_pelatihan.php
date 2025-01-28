@@ -23,7 +23,7 @@ $sql = mysqli_query($koneksi, $query);
                         <form method="post" action="tambah_pelatihan/simpan_pelatihan.php">
                             <div class="form-group">
                                 <label for="nama_pelatihan">Nama Pelatihan</label>
-                                <input type="text" class="form-control append-input" id="nama_pelatihan" name="nama_pelatihan" required>
+                                <input type="text" class="form-control append-input" id="nama_pelatihan" name="nama_pelatihan" required autocomplete="off">
                             </div>
                             <div class="form-group">
                                 <label for="tanggal_acara">Tanggal Acara</label>
@@ -31,7 +31,7 @@ $sql = mysqli_query($koneksi, $query);
                             </div>
                             <div class="form-group">
                                 <label for="tempat_acara">Tempat Acara</label>
-                                <input type="text" class="form-control append-input" id="tempat_acara" name="tempat_acara" required>
+                                <input type="text" class="form-control append-input" id="tempat_acara" name="tempat_acara" required autocomplete="off">
                             </div>
                             <div class="form-group">
                                 <input type="hidden" class="form-control append-input" name="id_admin" value="<?php echo $_SESSION['id_admin']; ?>" required readonly>

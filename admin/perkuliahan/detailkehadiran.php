@@ -12,7 +12,7 @@ $sql3 = mysqli_query($koneksi, $query);
       <h3 class="page-title">
         <span class="page-title-icon bg-gradient-primary text-white me-2">
           <i class="mdi mdi-barcode-scan"></i>
-        </span> Daftar Perkuliahan
+        </span> Detail Absen Kelas
       </h3>
     </div>
     <div class="row">
@@ -26,7 +26,7 @@ $sql3 = mysqli_query($koneksi, $query);
                   <tr>
                     <th>NIK</th>
                     <th>NAMA KARYAWAN</th>
-                    <th>TANGGAL MASUK</th>
+                    <th>JAM MASUK</th>
                     <th>EMAIL</th>
                   </tr>
                 </thead>
@@ -37,7 +37,8 @@ $sql3 = mysqli_query($koneksi, $query);
                     <tr>
                       <td><?php echo $row['nik']; ?></td>
                       <td><?php echo $row['nama_lengkap']?></td>
-                      <td><?php echo $row['tanggal_masuk']?></td>
+                      <td><?php //echo $row['tanggal_masuk']
+                      echo date('d-m-Y H:i:s')?></td>
                       <td><?php echo $row['email']?></td>
                     </tr>
                   </tbody>

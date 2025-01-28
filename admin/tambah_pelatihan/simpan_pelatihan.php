@@ -22,11 +22,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (mysqli_query($koneksi, $query)) {
         // Redirect ke halaman yang diinginkan setelah berhasil
         // echo "<script>alert('Data Berhasil Ditambahkan')</script>";
-        header("Location: ../index.php"); // Ganti dengan halaman yang sesuai
+        echo "<script>alert('Data Berhasil Ditambahkan!'); window.location.href='../index.php?menu=6';</script>";
+        //header("Location: ../index.php"); // Ganti dengan halaman yang sesuai
         exit();
     } else {
         // Jika terjadi error
-        echo "Error: " . $query . "<br>" . mysqli_error($koneksi);
+        echo "<script>alert('Data Gagal Ditambahkan!'); window.location.href='../index.php?menu=6';</script>";
+        // echo "Error: " . $query . "<br>" . mysqli_error($koneksi);
     }
 }
 ?>

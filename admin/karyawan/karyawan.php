@@ -13,7 +13,7 @@ $sql = mysqli_query($koneksi, $query);
       <h3 class="page-title">
         <span class="page-title-icon bg-gradient-primary text-white me-2">
           <i class="mdi mdi-barcode-scan"></i>
-        </span> Daftar Pelatihan
+        </span> Data Karyawan
       </h3>
     </div>  
     <div class="row">
@@ -57,8 +57,8 @@ $sql = mysqli_query($koneksi, $query);
                       <td><?php echo $row['kota']; ?></td>
                       <td><?php echo $row['no_hp']; ?></td>
                       <td>
-                       <a href="" class="btn btn-danger">HAPUS</a>
-                       <a href="" class="btn btn-warning">EDIT</a>
+                       <a href="karyawan/hapus.php?nik=<?php echo $row['nik']; ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">HAPUS</a>
+                       <a href="index.php?menu=7&nik=<?php echo $row['nik']; ?>" class="btn btn-warning">EDIT</a>
                       </td>
                     </tr>
                   </tbody>
@@ -89,15 +89,15 @@ $sql = mysqli_query($koneksi, $query);
             <div class="modal-body">
             <div class="form-group">
                 <label for="nik">NIK</label>
-                <input type="number" class="form-control" id="nik" name="nik" required>
+                <input type="number" class="form-control" id="nik" name="nik" required autocomplete="off">
             </div>
             <div class="form-group">
                 <label for="nama_lengkap">Nama Lengkap</label>
-                <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" required>
+                <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" required autocomplete="off">
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" name="email" required>
+                <input type="email" class="form-control" id="email" name="email" required autocomplete="off">
             </div>
             <div class="form-group">
                 <label for="tanggal_lahir">Tanggal Lahir</label>
@@ -105,15 +105,15 @@ $sql = mysqli_query($koneksi, $query);
             </div>
             <div class="form-group">
                 <label for="alamat">Alamat</label>
-                <textarea class="form-control" id="alamat" name="alamat" rows="3" required></textarea>
+                <textarea class="form-control" id="alamat" name="alamat" rows="3" required autocomplete="off"></textarea>
             </div>
             <div class="form-group">
                 <label for="kota">Kota</label>
-                <input type="text" class="form-control" id="kota" name="kota" required>
+                <input type="text" class="form-control" id="kota" name="kota" required autocomplete="off">
             </div>
             <div class="form-group">
                 <label for="no_hp">No HP</label>
-                <input type="text" class="form-control" id="no_hp" name="no_hp" required>
+                <input type="text" class="form-control" id="no_hp" name="no_hp" required autocomplete="off">
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
@@ -124,8 +124,8 @@ $sql = mysqli_query($koneksi, $query);
                 <input type="file" class="form-control-file" id="foto" name="foto">
             </div>
             <div class="form-group">
-                <label for="id_google">ID Google</label>
-                <input type="text" class="form-control" id="id_google" name="id_google">
+                <!-- <label for="id_google">ID Google</label> -->
+                <input type="text" class="form-control" id="id_google" name="id_google" hidden>
             </div>
             </div>
             <div class="modal-footer">

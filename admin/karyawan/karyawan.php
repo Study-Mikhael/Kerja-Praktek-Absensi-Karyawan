@@ -113,7 +113,7 @@ $sql = mysqli_query($koneksi, $query);
             </div>
             <div class="form-group">
                 <label for="no_hp">No HP</label>
-                <input type="text" class="form-control" id="no_hp" name="no_hp" required autocomplete="off">
+                <input type="text" class="form-control" id="no_hp" name="no_hp" required autocomplete="off" maxlength="13">
             </div>
             <div class="form-group">
                 <label for="password">Password</label>

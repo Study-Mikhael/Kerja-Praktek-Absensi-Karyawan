@@ -12,7 +12,7 @@ include'../config/koneksi.php';
               <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white me-2">
                   <i class="mdi mdi-barcode-scan"></i>
-                </span> Scan QR Code Mahasisiswa
+                </span> Scan QR Code Karyawan
               </h3>
             </div>
             <div class="row">

@@ -148,7 +148,7 @@ if($gClient->getAccessToken()){
   
               <form action="" method="post">
                 <div class="form-group">  
-                  <input type="number" name="nik" class="form-control" placeholder="Masukan NIK Anda" autocomplete="off">
+                  <input type="number" name="nik" class="form-control" placeholder="Masukan NIK Anda" autocomplete="off" maxlength="16">
                 </div>
                 <div class="form-group">
                   <input type="password" name="password" class="form-control" placeholder="Masukan Password Anda" autocomplete="new-password">
